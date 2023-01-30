@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="D:/training/jars/javax.servlet-api-4.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/jsp-api-5.5.23.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/mysql-connector-java-8.0.30.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/protobuf-java-3.19.4.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/servlet-api-2.4.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
