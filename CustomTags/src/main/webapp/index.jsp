@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+ <%@ taglib uri="WEB-INF/myTags.tld" prefix="m" %>  
 
+Current Date and Time is: <m:today/>  
 </body>
 </html>
