@@ -16,7 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@page import="com.renish.bean.User"%>
+	<%@page import="com.renish.bean.User"%>
 	<%@page import="com.renish.dao.UserDao"%>
 	<%@page import="com.renish.web.SaveLogistic"%>
 	<%@page import="com.renish.web.deletLogistic"%>
@@ -24,13 +24,16 @@
 	<%@page import="com.renish.dao.UserDao,com.renish.bean.*,java.util.*"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="m"%>
 
-<%
+
+	<%
 	String id = request.getParameter("id");
-	User u = UserDao.getLogisticRecord(Integer.parseInt(id));
+	User user = UserDao.getLogisticRecord(Integer.parseInt(id));
 	%>
 	<h1 class="fs-1 text-center fw-bold">LOGISTIC MANAGEMENT</h1>
 
-	<form  action="updateLogistic" method="post" class="container  col-lg-10">
+	<form action="updateLogistic" method="post"
+		class="container  col-lg-10">
+		<input type="hidden" name="id" value="<%=user.getId()%>" />
 		<div>
 			<div class="row mx-auto  d-flex justify-content-center pt-3">
 				<!-- <label class="col-sm-2 col-form-label fs-5"> -->
@@ -39,8 +42,8 @@
 
 				<div class="col-sm-4">
 					<input type="number" class="form-control mt-2 shadow bg-white"
-						id="ID" name="ID" placeholder="enter ID"
-						onblur=" validation('ID','error','ID:')">
+						id="ID" name="itemNo" placeholder="enter ID"
+						value="<%=user.getItemNo()%>">
 				</div>
 				<span id="error" class="text-danger" style="margin-left: 867px"></span>
 			</div>
@@ -51,9 +54,8 @@
 				<label class="col-sm-2 col-form-label fs-5">ITEM NAME:</label>
 				<div class="col-sm-4">
 					<input type="text" id="ITEM"
-						class="form-control mt-2 shadow bg-white"
-						onblur="validation('ITEM','iError','ITEM NAME:')" name="Item name"
-						placeholder="enter item name">
+						class="form-control mt-2 shadow bg-white" name="itemName"
+						placeholder="enter item name" value="<%=user.getItemName()%>" />
 					<!-- </label> -->
 				</div>
 				<span id="iError" class="text-danger" style="margin-left: 867px"></span>
@@ -67,7 +69,8 @@
 					<input type="date" id="date"
 						class="form-control mt-2 shadow bg-white"
 						onblur=" validation('date','dError','DATE:')" name="date"
-						id="date">
+						id="date" value="<%=user.getDate()%>">
+
 					<!-- </label> -->
 				</div>
 				<span id="dError" class="text-danger" style="margin-left: 867px"></span>
@@ -79,7 +82,7 @@
 				<label class="col-sm-2 col-form-label fs-5" for="select" id="a3">CATEGORY:</label>
 				<div class="col-sm-4">
 					<select class="form-control mt-2 shadow bg-white" type="option"
-						id="category" onblur="validation('category','sError','CATEGORY:')">
+						id="category" name="category" value="<%=user.getCategory()%>">
 						<option selected value="">select</option>
 						<option value="electronis">electronics</option>
 						<option value="paper">paper</option>
@@ -89,16 +92,14 @@
 				<span id="sError" class="text-danger" style="margin-left: 867px;"></span>
 			</div>
 		</div>
-	</form>
 
-	<div class="row " style="margin-left: 20px">
-		<div
-			class="col-sm-10 col-xl-5 col-lg-6 col-md-8 mx-auto text-center form p-4">
-			<button class="btn btn-outline-secondary" onclick="addData()"
-				type="button" id="update">submit</button>
-			<button class="btn btn-outline-secondary" onclick="resetform()"
-				type="reset">reset</button>
+		<div class="row " style="margin-left: 20px">
+		        <div class="col-sm-10 col-xl-5 col-lg-6 col-md-8 mx-auto text-center form p-4">
+
+			<input type="submit" class="btn btn-secondary" value="Update"
+				onclick="return AllValidate()"> <a href="index.jsp"
+				class="btn btn-danger">Back</a>
 		</div>
-	</div>
-
+		</div>
+	</form>
 </html>

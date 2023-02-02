@@ -33,15 +33,20 @@ public class updateLogistic extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pWriter = response.getWriter();
 
-		String itemNumber = request.getParameter("itemNo").trim();
-		String itemName = request.getParameter("itemName").trim();
-		String Date = request.getParameter("date").trim();
-		String category = request.getParameter("category").trim();
+		String itemNumber = request.getParameter("itemNo");
+		String itemName = request.getParameter("itemName");
+		String Date = request.getParameter("date");
+		String category = request.getParameter("category");
 
+		
+		System.out.println(itemName);
+		System.out.println(itemNumber);
+		System.out.println(Date);
+		System.out.println(category);
 		
 			int id = Integer.parseInt(request.getParameter("id"));
 
-			User user = new User(id, itemNumber, itemName, Date, category);
+			User user = new  User(id,itemNumber, itemName,Date, category);
 			UserDao.updateItemdata(user);
 			response.sendRedirect("index.jsp");
 

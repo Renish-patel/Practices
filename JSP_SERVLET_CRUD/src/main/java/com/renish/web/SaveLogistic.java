@@ -20,11 +20,13 @@ public class SaveLogistic extends HttpServlet {
 	private UserDao userDao;
 
 	public void init() {
+		System.out.println("working");
 		userDao = new UserDao();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("working");
 		doGet(request, response);
 	}
 
@@ -36,13 +38,18 @@ public class SaveLogistic extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pWriter = response.getWriter();
 
-		String itemNumber = request.getParameter("itemNo").trim();
-		String itemName = request.getParameter("itemName").trim();
-		String Date = request.getParameter("date").trim();
-		String category = request.getParameter("category").trim();
-
+		String itemNumber = request.getParameter("itemNo");
+		String itemName = request.getParameter("itemName");
+		String Date = request.getParameter("date");
+		String category = request.getParameter("category");
 		
-			User user = new User(itemNumber, itemName, Date, category);
+		System.out.println(Date);
+		System.out.println(itemNumber);
+		System.out.println(itemName);
+		System.out.println(category);
+		
+		
+			User user = new User();
 			user.setItemNo(itemNumber);
 			user.setItemName(itemName);
 			user.setDate(Date);

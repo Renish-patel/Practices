@@ -22,7 +22,7 @@ public class deletLogistic extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int itemId = Integer.parseInt(request.getParameter("id"));
-		User user = new User(itemId,null,null,null,null);
+		User user = new  User(itemId,null, null,null, null);
 		UserDao.deleteItem(user);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		

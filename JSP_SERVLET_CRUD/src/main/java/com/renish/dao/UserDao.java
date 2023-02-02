@@ -1,6 +1,5 @@
 package com.renish.dao;
 
-import java.io.ObjectInputFilter.Status;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,7 +29,7 @@ public class UserDao {
 		try {
 			Connection connection = getConnection();
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into user (ItemNo, ItemName, itemDate, Category) values(?,?,?,?)");
+					.prepareStatement("insert into user (ItemNo, ItemName, Date, Category) values(?,?,?,?)");
 
 			preparedStatement.setString(1, user.getItemNo());
 			preparedStatement.setString(2, user.getItemName());
@@ -55,7 +54,7 @@ public class UserDao {
 			preparedStatement.setString(2, user.getItemName());
 			preparedStatement.setString(3, user.getDate());
 			preparedStatement.setString(4, user.getCategory());
-			preparedStatement.setInt(4, user.getId());
+			preparedStatement.setInt(5, user.getId());
 			status = preparedStatement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -111,7 +110,7 @@ public class UserDao {
 		User user = null;
 		try {
 			Connection connection = getConnection();
-			PreparedStatement preparedStatement = connection.prepareStatement("select * from tableName where Id=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("select * from user where Id=?");
 			preparedStatement.setInt(1, id);
 
 			ResultSet resultSet = preparedStatement.executeQuery();

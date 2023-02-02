@@ -22,6 +22,9 @@ public class User {
 		this.date = date;
 		this.category = category;
 	}
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getId() {
 		return id;
