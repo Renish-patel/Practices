@@ -56,9 +56,13 @@ public class SaveLogistic extends HttpServlet {
 			user.setCategory(category);
 
 			int status = UserDao.saveItemdata(user);
+			
+			
 			if (status > 0) {
-				pWriter.print("<b>Successfully Added</b>");
-				response.sendRedirect("index-form.jsp");
+				pWriter.print("Successfully Added");
+				response.sendRedirect("index.jsp");
+				
+				
 			} else {
 				pWriter.print("<b>Enter Another ItemNo.</b>");
 			}

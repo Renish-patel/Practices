@@ -81,25 +81,29 @@
 			<div class="row mx-auto d-flex justify-content-center pt-3">
 				<label class="col-sm-2 col-form-label fs-5" for="select" id="a3">CATEGORY:</label>
 				<div class="col-sm-4">
+										<%System.out.println("knafkh====>" + user.getCategory()); %>
+				
 					<select class="form-control mt-2 shadow bg-white" type="option"
-						id="category" name="category" value="<%=user.getCategory()%>">
-						<option selected value="">select</option>
+						id="category" name="category">
+						<option ><%=user.getCategory()%></option>
 						<option value="electronis">electronics</option>
 						<option value="paper">paper</option>
 						<option value="cheque">cheque</option>
 					</select>
+					
 				</div>
+		
 				<span id="sError" class="text-danger" style="margin-left: 867px;"></span>
-			</div>
+			</div> 
 		</div>
 
 		<div class="row " style="margin-left: 20px">
-		        <div class="col-sm-10 col-xl-5 col-lg-6 col-md-8 mx-auto text-center form p-4">
+			<div
+				class="col-sm-10 col-xl-5 col-lg-6 col-md-8 mx-auto text-center form p-4">
 
-			<input type="submit" class="btn btn-secondary" value="Update"
-				onclick="return AllValidate()"> <a href="index.jsp"
-				class="btn btn-danger">Back</a>
-		</div>
+				<input type="submit" class="btn btn-secondary" value="Update">
+				<a href="index.jsp" class="btn btn-secondary" >Back</a>
+			</div>
 		</div>
 	</form>
 </html>

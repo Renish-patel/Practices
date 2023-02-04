@@ -93,7 +93,6 @@ public class UserDao {
 				user.setItemName(resultSet.getString("itemName"));
 				user.setDate(resultSet.getString("date"));
 				user.setCategory(resultSet.getString("category"));
-
 				list.add(user);
 			}
 
