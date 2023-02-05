@@ -43,7 +43,7 @@ function confirmupdate(Update){
 	console.log("ID =>" + updateData);
 	$("#updateModel").modal("toggle");
 	
-	myUpdateid = document.getElementById("hiddenId");
+	myUpdateid = document.getElementById("hidden_id");
 	myUpdateid.setAttribute('custome-idU', Update);
 }
 
@@ -57,18 +57,68 @@ function UpdateModel() {
 
 }
 
+
 $(document).ready(function () {
 	$("#tableData").on('click', "#es", function() {
 		console.log("Renish");
 		let editdata = $(this).closest('tr');
 		console.log(editdata);
-		$('#id').val(editdata.find('td:eq(0)').text());
-		
-		$('#item').val(editdata.find('td:eq(1)').text());
-		$('#id').val(editdata.find('td:eq(2)').text());
-		$('#id').val(editdata.find('td:eq(3)').text());
+		let id = editdata.find("td:eq(0)").text();
+		$('#itemNo').val(editdata.find('td:eq(0)').text());
+		$('#itemName').val(editdata.find('td:eq(1)').text());
+		$('#date').val(editdata.find('td:eq(2)').text());
+		$('#category').val(editdata.find('td:eq(3)').text());
 	});
 })
+
+
+/*$('.es').click(function(event) {
+	let data = $(this).closest("tr");
+
+	let id = data.find("td:eq(0)").text();
+	
+	$.post('JSP_SERVLET_CRUD', {
+		orderId : id
+	},function(responseText) {
+		let data = $('#hiddenId').text(responseText);
+		
+		let json = $("#hidden_id").text();
+
+		let obj = JSON.parse(json);
+	
+		$("#itemNo").val(obj.itemNo);
+		$("#itemName").val(obj.itemName);
+		$("#date").val(obj.date);
+		$("#a3").val(obj.category);
+		
+	});
+
+
+
+});*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 
@@ -124,16 +174,16 @@ $(document).ready(function () {
 			<tbody>
 
 
-				<input type="text" id="hiddenId">
+				<input type="hidden" id="hiddenId"/>
 
 
 				<m:forEach var="user" items="${listUser }">
 
 					<tr>
-						<td><m:out value="${user.itemNo }"></m:out></td>
-						<td><m:out value="${user.itemName }"></m:out></td>
-						<td><m:out value="${user.date}"></m:out></td>
-						<td><m:out value="${user.category }"></m:out></td>
+						<td class="itemname"><m:out value="${user.itemNo }"></m:out></td>
+						<td class="itemname"><m:out value="${user.itemName }"></m:out></td>
+						<td class="Date"><m:out value="${user.date}"></m:out></td>
+						<td class="category"><m:out value="${user.category }"></m:out></td>
 
 						<td>
 							<button class="btn btn-link mt-2 shadow-none text-primary"
@@ -200,6 +250,7 @@ $(document).ready(function () {
 		<div class="modal-dialog">
 			<div class="modal-content">
 
+
 				<div class="modal-header">
 					<h4 class="modal-title fw-bolder" id="exampleModalLabel">Logistic
 						Management</h4>
@@ -208,12 +259,11 @@ $(document).ready(function () {
 				</div>
 
 				<div class="modal-body">
-					<div>
+
+					<form action="<%=request.getContextPath()%>/updateLogistic">
 						<div>
 
-							<input type="hidden" name="id" /> <label>ID:</label>
-
-
+							<input type="hidden" name="id" id="hidden_id" /> <label>ID:</label>
 							<div>
 								<input type="number" id="id" name="itemNo"
 									placeholder="enter ID">
@@ -223,9 +273,8 @@ $(document).ready(function () {
 						<div>
 							<label>ITEM NAME:</label>
 							<div>
-								<input type="text" id="item" name="itemName"
+								<input type="text" id="itemName" name="itemName"
 									placeholder="enter item name" />
-								<!-- </label> -->
 							</div>
 							<span id="iError"></span>
 						</div>
@@ -249,32 +298,23 @@ $(document).ready(function () {
 								</select>
 
 							</div>
-
 							<span id="sError"></span>
 						</div>
-					</div>
+						</form>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">cancel</button>
-
-					<button type="button" class="btn btn-danger"
-						id="deleteGroceryButton" data-bs-dismiss="modal"
-						onclick="UpdateModel()">Update</button>
-				</div>
-
+				
 			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary"
+					data-bs-dismiss="modal">cancel</button>
+
+				<button type="button" class="btn btn-danger"
+					id="deleteGroceryButton" data-bs-dismiss="modal"
+					onclick="UpdateModel()">Update</button>
+			</div>
+			<div></div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
 
 
 </body>

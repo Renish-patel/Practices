@@ -33,6 +33,8 @@ public class updateLogistic extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter pWriter = response.getWriter();
 
+		
+		
 		String itemNumber = request.getParameter("itemNo");
 		String itemName = request.getParameter("itemName");
 		String Date = request.getParameter("date");
