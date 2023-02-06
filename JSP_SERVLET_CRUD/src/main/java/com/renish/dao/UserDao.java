@@ -50,11 +50,16 @@ public class UserDao {
 			Connection connection = getConnection();
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("update user set ItemNo=?,ItemName=?,Date=?,Category=? where id=?");
+			
+			
 			preparedStatement.setString(1, user.getItemNo());
 			preparedStatement.setString(2, user.getItemName());
 			preparedStatement.setString(3, user.getDate());
 			preparedStatement.setString(4, user.getCategory());
+			
 			preparedStatement.setInt(5, user.getId());
+				System.out.println("weewewewewew===>"+user.getId());
+				
 			status = preparedStatement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);

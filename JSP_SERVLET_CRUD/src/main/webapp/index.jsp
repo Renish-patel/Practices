@@ -2,6 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+<%@page import="com.renish.bean.User"%>
+<%@page import="com.renish.dao.UserDao"%>
+<%@page import="com.renish.web.SaveLogistic"%>
+<%@page import="com.renish.web.deletLogistic"%>
+<%@page import="com.renish.web.updateLogistic"%>
+<%@page import="com.renish.dao.UserDao,com.renish.bean.*,java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="m"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,15 +24,28 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="ISO-8859-1">
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 
 <script type="text/javascript">
 var deleteData;
 function confirmLogistic(deleteID){
 	// deleteData = deleteID;
-	console.log("ID =>" + deleteData);
+	console.log("ID =>" + deleteID);
 	$("#deleteModel").modal("toggle");
 	
-	myDeleteId = document.getElementById("hiddenId");
+	myDeleteId = document.getElementById("item_hidden_id");
 	myDeleteId.setAttribute('custome-id', deleteID);
 }
 
@@ -43,14 +65,14 @@ function confirmupdate(Update){
 	console.log("ID =>" + updateData);
 	$("#updateModel").modal("toggle");
 	
-	myUpdateid = document.getElementById("hidden_id");
-	myUpdateid.setAttribute('custome-idU', Update);
+	myUpdateid = document.getElementById("item_hidden_id");
+	myUpdateid.setAttribute('custom-item-id', Update);
 }
 
 <!--model -->
 function UpdateModel() {
 	
-	var Upa = myUpdateid.getAttribute('custome-idU');
+	var Upa = myUpdateid.getAttribute('custom-item-id');
 	
 	console.log("Hello =>" + Upa);
 	window.location.href="updateLogistic?id="+Upa+"";
@@ -58,95 +80,30 @@ function UpdateModel() {
 }
 
 
-$(document).ready(function () {
-	$("#tableData").on('click', "#es", function() {
+  $(document).ready(function () {
+	$("#tableData").on('click', "#updatebutton", function() {
 		console.log("Renish");
 		let editdata = $(this).closest('tr');
 		console.log(editdata);
-		let id = editdata.find("td:eq(0)").text();
-		$('#itemNo').val(editdata.find('td:eq(0)').text());
-		$('#itemName').val(editdata.find('td:eq(1)').text());
-		$('#date').val(editdata.find('td:eq(2)').text());
-		$('#category').val(editdata.find('td:eq(3)').text());
+		$('#item_hidden_id').val(editdata.find('td:eq(0)').text());
+		$('#itemNo').val(editdata.find('td:eq(1)').text());
+		$('#itemName').val(editdata.find('td:eq(2)').text());
+		$('#item_date').val(editdata.find('td:eq(3)').text());
+		$('#item_category').val(editdata.find('td:eq(4)').text());
+	    
 	});
-})
-
-
-/*$('.es').click(function(event) {
-	let data = $(this).closest("tr");
-
-	let id = data.find("td:eq(0)").text();
-	
-	$.post('JSP_SERVLET_CRUD', {
-		orderId : id
-	},function(responseText) {
-		let data = $('#hiddenId').text(responseText);
-		
-		let json = $("#hidden_id").text();
-
-		let obj = JSON.parse(json);
-	
-		$("#itemNo").val(obj.itemNo);
-		$("#itemName").val(obj.itemName);
-		$("#date").val(obj.date);
-		$("#a3").val(obj.category);
-		
-	});
-
-
-
-});*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
+<%--   <%
+	String id = request.getParameter("id");
+	User user = UserDao.getLogisticRecord(Integer.parseInt(id));
+	%> --%>
 
 
 </script>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<meta charset="ISO-8859-1">
 
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
 </head>
 <body>
-
-
-	<%@page import="com.renish.bean.User"%>
-	<%@page import="com.renish.dao.UserDao"%>
-	<%@page import="com.renish.web.SaveLogistic"%>
-	<%@page import="com.renish.web.deletLogistic"%>
-	<%@page import="com.renish.web.updateLogistic"%>
-	<%@page import="com.renish.dao.UserDao,com.renish.bean.*,java.util.*"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="m"%>
-
 	<%
 	UserDao userDao;
 	List<User> listUser = UserDao.GetitemRecord();
@@ -163,7 +120,7 @@ $(document).ready(function () {
 		<table class="table table-bordered text-center fs-5 col-sm-1"
 			id="tableData">
 			<thead>
-				<tr>
+				<tr><th hidden>Item ID</th>
 					<th>Item No.</th>
 					<th>Item Name</th>
 					<th>Date</th>
@@ -174,12 +131,13 @@ $(document).ready(function () {
 			<tbody>
 
 
-				<input type="hidden" id="hiddenId"/>
+				
 
 
 				<m:forEach var="user" items="${listUser }">
 
 					<tr>
+						<td hidden><m:out value="${user.id }"></m:out></td>
 						<td class="itemname"><m:out value="${user.itemNo }"></m:out></td>
 						<td class="itemname"><m:out value="${user.itemName }"></m:out></td>
 						<td class="Date"><m:out value="${user.date}"></m:out></td>
@@ -187,7 +145,7 @@ $(document).ready(function () {
 
 						<td>
 							<button class="btn btn-link mt-2 shadow-none text-primary"
-								onclick="confirmupdate('${user.id }')" id="es">
+								onclick="confirmupdate('${user.id }')" id="updatebutton">
 								<i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
 							</button>
 
@@ -259,13 +217,12 @@ $(document).ready(function () {
 				</div>
 
 				<div class="modal-body">
-
-					<form action="<%=request.getContextPath()%>/updateLogistic">
+					<form action="updateLogistic" method="Post">
 						<div>
 
-							<input type="hidden" name="id" id="hidden_id" /> <label>ID:</label>
+							<input type="hidden" name="id" id="item_hidden_id" /> <label>ID:</label>
 							<div>
-								<input type="number" id="id" name="itemNo"
+								<input type="text" id="itemNo" name="itemNo"
 									placeholder="enter ID">
 							</div>
 							<span id="error" style="margin-left: 867px"></span>
@@ -276,12 +233,11 @@ $(document).ready(function () {
 								<input type="text" id="itemName" name="itemName"
 									placeholder="enter item name" />
 							</div>
-							<span id="iError"></span>
 						</div>
 						<div>
 							<label>DATE:</label>
 							<div>
-								<input type="date" id="date" name="date" id="date">
+								<input type="date" id="item_date" name="date" id="date">
 
 								<!-- </label> -->
 							</div>
@@ -290,7 +246,7 @@ $(document).ready(function () {
 						<div>
 							<label for="select" id="a3">CATEGORY:</label>
 							<div>
-								<select type="option" id="category" name="category">
+								<select type="option" id="item_category" name="category">
 									<option></option>
 									<option value="electronis">electronics</option>
 									<option value="paper">paper</option>
@@ -300,19 +256,20 @@ $(document).ready(function () {
 							</div>
 							<span id="sError"></span>
 						</div>
-						</form>
-				</div>
-				
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary"
-					data-bs-dismiss="modal">cancel</button>
 
-				<button type="button" class="btn btn-danger"
-					id="deleteGroceryButton" data-bs-dismiss="modal"
-					onclick="UpdateModel()">Update</button>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">cancel</button>
+
+							<button type="submit" class="btn btn-danger"
+								id="updateLogisticdata" data-bs-dismiss="modal">Update</button>
+						</div>
+
+					</form>
+				</div>
+
 			</div>
-			<div></div>
 		</div>
 	</div>
 

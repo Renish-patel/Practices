@@ -34,15 +34,19 @@ public class viewModel extends HttpServlet {
 
 		response.setContentType("text/html");
 		PrintWriter pWriter = response.getWriter();
-
+		
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 		User user = UserDao.getLogisticRecord(id);
 
+		int id1 = user.getId();
 		String itemNumber = user.getItemNo();
 		String itemName = user.getItemName();
 		String Date = user.getDate();
 		String category = user.getCategory();
-
+		
+		System.out.println("e3diey3dkyr4dykr4ykr4y2k =======> " + id1);
+		
 		messages.put("itemNumber", itemNumber);
 		messages.put("itemName", itemName);
 		messages.put("date", Date);

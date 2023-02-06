@@ -13,13 +13,13 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="E:/jar_files/cos-2022.2.jar"/>
-	<classpathentry kind="lib" path="E:/jar_files/javax.servlet-api-4.0.1.jar"/>
-	<classpathentry kind="lib" path="E:/jar_files/json-20220320.jar"/>
-	<classpathentry kind="lib" path="E:/jar_files/jsp-api-5.5.23.jar"/>
-	<classpathentry kind="lib" path="E:/jar_files/jstl-1.2.jar"/>
-	<classpathentry kind="lib" path="E:/jar_files/mysql-connector-java-8.0.30.jar"/>
-	<classpathentry kind="lib" path="E:/jar_files/protobuf-java-3.19.4.jar"/>
-	<classpathentry kind="lib" path="E:/jar_files/servlet-api-2.4.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/cos-2022.2.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/javax.servlet-api-4.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/json-20220320.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/jsp-api-5.5.23.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/mysql-connector-java-8.0.30.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/protobuf-java-3.19.4.jar"/>
+	<classpathentry kind="lib" path="D:/training/jars/servlet-api-2.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

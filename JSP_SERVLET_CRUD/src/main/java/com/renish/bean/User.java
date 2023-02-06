@@ -2,6 +2,7 @@ package com.renish.bean;
 
 public class User {
 	protected int id;
+
 	protected String itemNo;
 	protected String itemName;
 	protected String date;

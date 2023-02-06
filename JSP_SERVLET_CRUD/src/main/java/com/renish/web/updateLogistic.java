@@ -27,39 +27,36 @@ public class updateLogistic extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		System.out.println("Under update controller");
 		Map<String, String> messages = new HashMap<String, String>();
 		request.setAttribute("messages", messages);
 
 		response.setContentType("text/html");
 		PrintWriter pWriter = response.getWriter();
 
-		
-		
 		String itemNumber = request.getParameter("itemNo");
 		String itemName = request.getParameter("itemName");
 		String Date = request.getParameter("date");
 		String category = request.getParameter("category");
 
+		System.out.println("its update====>"+itemName);
+		System.out.println("its update====>"+itemNumber);
+		System.out.println("its update====>"+Date);
+		System.out.println("its update====>"+category);
 		
-		System.out.println(itemName);
-		System.out.println(itemNumber);
-		System.out.println(Date);
-		System.out.println(category);
-		
-			int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("id"));
+		System.out.println(id);
+		User user = new User(id, itemNumber, itemName, Date, category);
+		UserDao.updateItemdata(user);
+		response.sendRedirect("index.jsp");
 
-			User user = new  User(id,itemNumber, itemName,Date, category);
-			UserDao.updateItemdata(user);
-			response.sendRedirect("index.jsp");
-
-		
-			if (messages.size() != 0) {
-				pWriter.println(messages);
-				request.getRequestDispatcher("edit-form.jsp").forward(request, response);
-			}
-			pWriter.close();
+		if (messages.size() != 0) {
+			pWriter.println(messages);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
-	
+		pWriter.close();
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
