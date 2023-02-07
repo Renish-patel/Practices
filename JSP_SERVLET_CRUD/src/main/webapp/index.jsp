@@ -39,7 +39,12 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
-var deleteData;
+
+
+
+
+
+ var deleteData;
 function confirmLogistic(deleteID){
 	// deleteData = deleteID;
 	console.log("ID =>" + deleteID);
@@ -49,14 +54,53 @@ function confirmLogistic(deleteID){
 	myDeleteId.setAttribute('custome-id', deleteID);
 }
 
-<!--model -->
-function deleteModel() {
+/*  function deleteModel() {
 	
 	var del = myDeleteId.getAttribute('custome-id');
 	
 	console.log("Hello =>" + del);
 	window.location.href="deletLogistic?id="+del+"";
 }
+*/
+
+
+function deleteModel(userid){
+	    return $.ajax({
+    	url: "deletLogistic",
+        type: 'GET',
+        cache: false,
+        dataType: 'json',
+        success: function(data){
+        	return data; 
+			console.log("whats in the data ======>"+data)
+        }
+    } );
+}
+
+
+/*  function deleteModel() {
+	  const xhttp = new XMLHttpRequest();
+	  xhttp.onload = function() {
+	    document.getElementById("item_hidden_id").innerHTML =
+	    this.responseText;
+	  }
+	  xhttp.open("GET", "deletLogistic");
+	  xhttp.send();
+	}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- update Model -->
@@ -120,7 +164,8 @@ function UpdateModel() {
 		<table class="table table-bordered text-center fs-5 col-sm-1"
 			id="tableData">
 			<thead>
-				<tr><th hidden>Item ID</th>
+				<tr>
+					<th hidden>Item ID</th>
 					<th>Item No.</th>
 					<th>Item Name</th>
 					<th>Date</th>
@@ -131,7 +176,7 @@ function UpdateModel() {
 			<tbody>
 
 
-				
+
 
 
 				<m:forEach var="user" items="${listUser }">
@@ -217,26 +262,27 @@ function UpdateModel() {
 				</div>
 
 				<div class="modal-body">
-					<form action="updateLogistic" method="Post">
+					<form class="container  col-lg-10" action="updateLogistic" method="Post">
 						<div>
-
-							<input type="hidden" name="id" id="item_hidden_id" /> <label>ID:</label>
+							<input type="hidden" name="id" id="item_hidden_id" /> 
 							<div>
+							<span>Item no:</span>
 								<input type="text" id="itemNo" name="itemNo"
 									placeholder="enter ID">
 							</div>
 							<span id="error" style="margin-left: 867px"></span>
 						</div>
 						<div>
-							<label>ITEM NAME:</label>
+						
 							<div>
+								<span>Itemn names:</span>
 								<input type="text" id="itemName" name="itemName"
 									placeholder="enter item name" />
 							</div>
 						</div>
 						<div>
-							<label>DATE:</label>
 							<div>
+								<span>Date:</span>
 								<input type="date" id="item_date" name="date" id="date">
 
 								<!-- </label> -->
@@ -244,8 +290,8 @@ function UpdateModel() {
 							<span id="dError"></span>
 						</div>
 						<div>
-							<label for="select" id="a3">CATEGORY:</label>
-							<div>
+						<div>
+							<span for="select" id="a3">Category:</span>
 								<select type="option" id="item_category" name="category">
 									<option></option>
 									<option value="electronis">electronics</option>
@@ -254,7 +300,6 @@ function UpdateModel() {
 								</select>
 
 							</div>
-							<span id="sError"></span>
 						</div>
 
 
