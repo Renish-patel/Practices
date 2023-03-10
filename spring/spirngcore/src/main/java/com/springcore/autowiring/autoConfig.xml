@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="com.springcore.autowiring.Address" name="address">
+	<property name="street" value="tempStreet"/>
+	<property name="city" value="ahmedabad"/>
+		
+	</bean>
+	<bean class="com.springcore.autowiring.Employee" name="emp" autowire="byName"/>
+	
+</beans>

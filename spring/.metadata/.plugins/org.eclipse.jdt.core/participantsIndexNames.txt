@@ -1,0 +1,9 @@
+INDEX VERSION 1.131
+D:\training\renish\java practice\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1354900507.index
+\productcrudapp\src\main\resources
+D:\training\renish\java practice\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\65910700.index
+\springMVC\src\main\java
+D:\training\renish\java practice\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1878311279.index
+\productcrudapp\src\main\java
+D:\training\renish\java practice\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2238499324.index
+\springMVC\src\main\resources

@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+D:\training\renish\java practice\spring\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1354900507.index
+2227835435.index
+65910700.index
+1878311279.index
+2320829789.index

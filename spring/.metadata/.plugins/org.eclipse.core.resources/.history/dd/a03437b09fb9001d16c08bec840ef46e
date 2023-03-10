@@ -1,0 +1,12 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+<% 
+System.out.print("working or not");
+%>
+<h1>this home page called by controller </h1>
+</body>
+</html>

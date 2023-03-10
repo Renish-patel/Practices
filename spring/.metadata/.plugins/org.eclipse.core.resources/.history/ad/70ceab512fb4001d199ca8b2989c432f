@@ -1,0 +1,27 @@
+package com.swarck.methodBeforadvise;
+
+import java.util.List;
+
+public class ProxyFactoryBean {
+	private Object target;
+	private List interceptorNames;
+	public Object getTarget() {
+		return target;
+	}
+	public void setTarget(Object target) {
+		this.target = target;
+	}
+	public List getInterseptorName() {
+		return getInterseptorName();
+	}
+	public void setInterseptorName(List interseptorName) {
+		this.interceptorNames = interseptorName;
+	}
+	public ProxyFactoryBean(Object target, List interseptorName) {
+		super();
+		this.target = target;
+		this.interceptorNames = interseptorName;
+	}
+	
+	
+}

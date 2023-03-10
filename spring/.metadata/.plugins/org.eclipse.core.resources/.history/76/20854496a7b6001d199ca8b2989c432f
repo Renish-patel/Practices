@@ -1,0 +1,39 @@
+package com.swarck.Resulesetextractor;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
+
+public class EmployeeDao {
+
+	private JdbcTemplate templat;
+
+	public void setTemplate(JdbcTemplate template) {
+		this.templat = template;
+	}
+
+	public List<Employee> getAllEmployees() {
+		return templat.query("select from employee", new ResultSetExtractor<List<Employee>>() {
+			
+		    public List<Employee> extractData(ResultSet rs) throws SQLException, DataAccessException {
+				List<Employee> list = new ArrayList<Employee>();
+				while (rs.next()) {
+					Employee e = new Employee(0, null, 0);
+					e.setId(rs.getInt(1));
+					e.setName(rs.getString(2));
+					e.setSalary(rs.getInt(3));
+					list.add(e);
+
+				}
+
+				return list;
+			}
+
+		});
+	}
+}

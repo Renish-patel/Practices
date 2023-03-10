@@ -1,0 +1,10 @@
+INDEX VERSION 1.131+D:\training\renish\java practice\spring\.metadata\.plugins\org.eclipse.jdt.core
+2227835435.index
+327739127.index
+1824007855.index
+2320829789.index
+2707397592.index
+1865797976.index
+1432956148.index
+595257674.index
+2767140186.index

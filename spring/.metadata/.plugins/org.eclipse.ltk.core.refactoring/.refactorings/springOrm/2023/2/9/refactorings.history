@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;springOrm/src/main/java/NewFile.xml&apos; to &apos;Config.xml&apos;" description="Rename resource &apos;NewFile.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/NewFile.xml" name="Config.xml" stamp="1677582208667" updateReferences="true"/>
+</session>

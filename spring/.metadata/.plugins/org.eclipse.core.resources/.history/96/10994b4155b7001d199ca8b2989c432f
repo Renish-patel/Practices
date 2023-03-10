@@ -1,0 +1,5 @@
+package com.swarck.spring.orm.dao;
+
+public class StudentDaio {
+
+}

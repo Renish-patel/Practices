@@ -1,0 +1,16 @@
+package springMVC.Dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+
+import springMVC.model.onlyUser;
+
+public class UserDao {
+	private HibernateTemplate hibernateTemplate;
+	@Autowired
+	public int save(onlyUser user) {
+		int id = (Integer) this.hibernateTemplate.save(user);
+
+		return id;
+	}
+}

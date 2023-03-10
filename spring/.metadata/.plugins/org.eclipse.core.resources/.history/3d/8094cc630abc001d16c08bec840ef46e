@@ -1,0 +1,30 @@
+package springMVC.model;
+
+public class onlyUser {
+ private String Email;
+ private String name;
+ private String passwords;
+public String getEmail() {
+	return Email;
+}
+public void setEmail(String email) {
+	Email = email;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getPasswords() {
+	return passwords;
+}
+public void setPasswords(String passwords) {
+	this.passwords = passwords;
+}
+@Override
+public String toString() {
+	return "onlyUser [Email=" + Email + ", name=" + name + ", passwords=" + passwords + "]";
+}
+
+}

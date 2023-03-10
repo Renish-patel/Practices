@@ -1,0 +1,5 @@
+package com.swarck.methodBeforadvise;
+
+public class ProxyFactoryBean {
+
+}

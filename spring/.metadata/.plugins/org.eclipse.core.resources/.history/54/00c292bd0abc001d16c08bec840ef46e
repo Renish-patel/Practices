@@ -1,0 +1,7 @@
+package springMVC.model;
+
+public class onlyUser {
+ private String Email;
+ private String passwords;
+ private String userName;
+}

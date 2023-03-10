@@ -1,0 +1,22 @@
+package productcrudapp;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class Maincontroller {
+
+	@RequestMapping("/")
+	public String homr() {
+		return "index";
+	}
+	
+	@RequestMapping("/add-product")
+	public String addProduct(Model m) 
+	{
+		m.addAttribute("title","Add Product");
+		return "add_product_form";
+		
+	}
+}
